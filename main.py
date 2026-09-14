@@ -24,7 +24,7 @@ def make_requests():
         res = requests.get(url=URL, params=params)
         if not res.ok:
             print(
-                f"API request failed due to {res.status_code} with messafe {res.json()}"
+                f"API request failed due to {res.status_code} with message {res.json()}"
             )
             return
         response = res.json()
@@ -34,7 +34,7 @@ def make_requests():
 
 
 def post_to_slack(response: dict[str, str]):
-    attachemnt = None
+    attachment = None
     if not response:
         print("Response is None due to API failed or object is empty")
         attachment = {
